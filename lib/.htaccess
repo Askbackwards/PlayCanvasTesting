@@ -1,6 +1,0 @@
-IndexIgnore *
-Options +FollowSymlinks
-RewriteEngine On
-RewriteCond %{HTTP_REFERER} !^https://(www\\.)?mysterious-garden-13553.herokuapp.com/ [NC]
-RewriteCond %{REQUEST_URI} !hotlink\\.(gif|png|jpg|doc|xls|pdf|html|htm|xlsx|docx|mp4|m4v|ogv|webm|js) [NC]
-RewriteRule .*\\.(gif|png|jpg|doc|xls|pdf|html|htm|xlsx|docx|mp4|m4v|ogv|webm)$ https://mysterious-garden-13553.herokuapp.com/index.php?redirect_to=%{REQUEST_URI} [NC]
