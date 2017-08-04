@@ -23,14 +23,10 @@ try {
         'Key'    => $keyname,
     ));
     
-    $gameStr = $gameText['Body'];
+    $game="game.js";
+    file_put_contents($game, $gameText['Body']);
     
-    $game = <<<JS
-        $gameStr
-JS;
-    
-    //$game="game.js";
-    //file_put_contents($game, $gameText['Body']);
+    chmod($game, 0644);
 
     // Run game script
     echo "<!DOCTYPE html>
