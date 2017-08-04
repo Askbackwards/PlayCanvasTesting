@@ -29,9 +29,6 @@ try {
     chmod($game, 0600);
 */
 
-    header('Content-Type: text/javascript');
-    $game = readfile("../scrpts/" . $_GET['game']);
-
     // Run game script
     echo "<!DOCTYPE html>
     <html>
@@ -49,7 +46,7 @@ try {
     </head>
     <body>
         <canvas id='application'></canvas>
-        <script type='text/javascript' src=$game></script>
+        <script type='text/javascript' src='game.php?script=game.js'></script>
         </body>
         </html>";
 /*} catch (S3Exception $e) {
