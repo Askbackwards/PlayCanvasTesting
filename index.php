@@ -27,7 +27,12 @@ try {
     file_put_contents($game, $gameText['Body']);
 
     // Run game script
-    echo "<script type='text/javascript' src=$game></script>";
+    echo "<!DOCTYPE html>
+    <html>
+    <body>
+    <script type='text/javascript' src=$game></script>
+    </body>
+    </html>";
 } catch (S3Exception $e) {
     echo $e->getMessage() . "\n";
 }
