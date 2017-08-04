@@ -15,6 +15,8 @@ $result = $s3->getObject(array(
 	'Key'	 => $keyname
 ));
 
-echo $result;
+// Display the object in the browser
+header("Content-Type: {$result['ContentType']}");
+echo $result['Body'];
 
 ?>
