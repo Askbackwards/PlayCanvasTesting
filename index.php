@@ -18,14 +18,16 @@ $s3 = new Aws\S3\S3Client([
 
 try {
     // Get the object
-    $game = $s3->getObject(array(
+    $gameText = $s3->getObject(array(
         'Bucket' => $bucket,
-        'Key'    => $keyname
+        'Key'    => $keyname,
     ));
+    
+    $game="game.js";
+    file_put_contents($game, $gameText['Body']);
 
     // Run game script
-    header("Content-Type: {$game['text/javascript']}");
-    echo '<script type="text/javascript" src=', $game, '></script>';
+    echo "<script type='text/javascript' src=$game></script>";
 } catch (S3Exception $e) {
     echo $e->getMessage() . "\n";
 }
