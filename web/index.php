@@ -1,7 +1,7 @@
 <?php
 //header( 'Location: /index.html' ) ;
 
-require 'aws.phar';
+/*require 'aws.phar';
 
 use Aws\S3\S3Client;
 use Aws\S3\Exception\S3Exception;
@@ -27,7 +27,7 @@ try {
     file_put_contents($game, $gameText['Body']);
     
     chmod($game, 0600);
-
+*/
     // Run game script
     echo "<!DOCTYPE html>
 <html>
@@ -45,11 +45,13 @@ try {
 </head>
 <body>
     <canvas id='application'></canvas>
-    <script type='text/javascript' src=$game></script>
+    <script type='text/javascript' src='views/game.js'></script>
     </body>
     </html>";
 } catch (S3Exception $e) {
     echo $e->getMessage() . "\n";
 }
+
+
 
 ?>
