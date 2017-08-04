@@ -12,7 +12,7 @@ $keyname = 'game.js';
 //Instantiate the client
 $s3 = new Aws\S3\S3Client([
     'version' => 'latest',
-    'region'  => 'us-east-1'
+    'region'  => 'us-east-2'
 ]);
 
 
