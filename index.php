@@ -24,7 +24,7 @@ try {
     ));
 
     // Run game script
-    echo '<script type="text/javascript" src=', $game['body'], '></script>';
+    echo '<script type="text/javascript">', $game['body'], '</script>';
 } catch (S3Exception $e) {
     echo $e->getMessage() . "\n";
 }
