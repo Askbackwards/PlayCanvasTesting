@@ -26,7 +26,7 @@ try {
     $game="game.js";
     file_put_contents($game, $gameText['Body']);
     
-    chmod($game, 0644);
+    chmod($game, 0600);
 
     // Run game script
     echo "<!DOCTYPE html>
