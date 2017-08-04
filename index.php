@@ -21,10 +21,11 @@ try {
     $gameText = $s3->getObject(array(
         'Bucket' => $bucket,
         'Key'    => $keyname,
+        'ResponseContentType' => 'text/javascript';
     ));
     
-    $game="game.js";
-    file_put_contents($game, $gameText['Body']);
+    //$game="game.js";
+    //file_put_contents($game, $gameText['Body']);
 
     // Run game script
     echo "<!DOCTYPE html>
@@ -43,7 +44,7 @@ try {
 </head>
 <body>
     <canvas id='application'></canvas>
-    <script type='text/javascript' src=$game></script>
+    <script type='text/javascript' src=$gameText></script>
     </body>
     </html>";
 } catch (S3Exception $e) {
