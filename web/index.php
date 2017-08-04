@@ -28,6 +28,8 @@ try {
     
     chmod($game, 0600);
 */
+
+
     // Run game script
     echo "<!DOCTYPE html>
 <html>
@@ -48,9 +50,9 @@ try {
     <script type='text/javascript' src='views/game.js'></script>
     </body>
     </html>";
-} catch (S3Exception $e) {
+/*} catch (S3Exception $e) {
     echo $e->getMessage() . "\n";
-}
+}*/
 
 
 
