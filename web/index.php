@@ -47,7 +47,7 @@ try {
 </head>
 <body>
     <canvas id='application'></canvas>
-    <script type='text/javascript' src='scripts/game.js'></script>
+    <script type='text/javascript' src='../scripts/game.js'></script>
     </body>
     </html>";
 /*} catch (S3Exception $e) {
