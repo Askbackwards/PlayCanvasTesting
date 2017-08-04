@@ -3,11 +3,17 @@
 
 require 'aws.phar';
 
+use Aws\S3\S3Client;
+use Aws\S3\Exception\S3Exception;
+
 $bucket = getenv('S3_BUCKET_NAME');
 $keyname = 'game.js';
 
 //Instantiate the client
-$s3 = S3Client::factory();
+$s3 = new Aws\S3\S3Client([
+    'version' => 'latest',
+    'region'  => 'us-east-1'
+]);
 
 
 try {
