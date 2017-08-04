@@ -1,5 +1,5 @@
 <?php
-//header( 'Location: /index.html' ) ;
+header( 'Location: /index.html' ) ;
 
 /*require 'aws.phar';
 
@@ -30,25 +30,6 @@ try {
 */
 
     // Run game script
-    echo "<!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset='utf-8'>
-        <title>PlayCanvas Hello Cube</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no' />
-        <style>
-            body {
-                margin: 0;
-                overflow: hidden;
-            }
-        </style>
-        <script src='https://code.playcanvas.com/playcanvas-stable.min.js'></script>
-    </head>
-    <body>
-        <canvas id='application'></canvas>
-        <script type='text/javascript' src='game.php?script=game.js'></script>
-        </body>
-        </html>";
 /*} catch (S3Exception $e) {
     echo $e->getMessage() . "\n";
 }*/
