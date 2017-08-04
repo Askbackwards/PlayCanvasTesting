@@ -29,27 +29,34 @@ try {
     chmod($game, 0600);
 */
 
+    function requireToVar($file) {
+        ob_start();
+        require($file);
+        return ob_get_clean();
+    }
+
+    $game = requireToVar('scripts/game.js');
 
     // Run game script
     echo "<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <title>PlayCanvas Hello Cube</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no' />
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
-    </style>
-    <script src='https://code.playcanvas.com/playcanvas-stable.min.js'></script>
-</head>
-<body>
-    <canvas id='application'></canvas>
-    <script type='text/javascript' src='../scripts/game.js'></script>
-    </body>
-    </html>";
+    <html>
+    <head>
+        <meta charset='utf-8'>
+        <title>PlayCanvas Hello Cube</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no' />
+        <style>
+            body {
+                margin: 0;
+                overflow: hidden;
+            }
+        </style>
+        <script src='https://code.playcanvas.com/playcanvas-stable.min.js'></script>
+    </head>
+    <body>
+        <canvas id='application'></canvas>
+        <script type='text/javascript' src=$game></script>
+        </body>
+        </html>";
 /*} catch (S3Exception $e) {
     echo $e->getMessage() . "\n";
 }*/
