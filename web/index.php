@@ -29,14 +29,6 @@ try {
     chmod($game, 0600);
 */
 
-    function requireToVar($file) {
-        ob_start();
-        require($file);
-        return ob_get_clean();
-    }
-
-    $game = requireToVar('scripts/game.js');
-
     // Run game script
     echo "<!DOCTYPE html>
     <html>
@@ -54,7 +46,7 @@ try {
     </head>
     <body>
         <canvas id='application'></canvas>
-        <script type='text/javascript' src=$game></script>
+        <script type='text/javascript' src='../scripts/game.js'></script>
         </body>
         </html>";
 /*} catch (S3Exception $e) {
