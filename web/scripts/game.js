@@ -41,8 +41,8 @@ app.root.addChild(camera);
 app.root.addChild(light);
 
 // set up initial positions and orientations
-cube.setPosition(0, -10, 0);
-cube.setLocalScale(10,1,10);
+cube.setPosition(0, 0, 0);
+//cube.setLocalScale(10,1,10);
 camera.setPosition(0, 0, 10);
 light.setEulerAngles(45, 0, 0);
 
