@@ -1,3 +1,5 @@
+console.log('Test');
+
 // create a PlayCanvas application
 var canvas = document.getElementById('application');
 var app = new pc.Application(canvas, { });

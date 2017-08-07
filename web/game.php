@@ -1,4 +1,4 @@
 <?php
-    header('Content-Type: text/javascript');
+    header('Content-Type: application/javascript');
     readfile("../scripts/" . $_GET['script']);
 ?>
