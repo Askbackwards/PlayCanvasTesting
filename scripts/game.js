@@ -1,8 +1,10 @@
-console.log('Test');
 
 // create a PlayCanvas application
 var canvas = document.getElementById('application');
-var app = new pc.Application(canvas, { });
+var app = new pc.Application(canvas, { 
+	mouse: new pc.Mouse(window),
+	keyboard: new pc.Keyboard(window)
+});
 app.start();
 
 // fill the available space at full resolution
@@ -20,10 +22,10 @@ cube.addComponent('model', {
     type: 'box'
 });
 
-//create sphere entity
-var sphere = new pc.Entity('sphere');
-sphere.addComponent('model', {
-  type: 'sphere'
+//create player
+var player = new pc.Entity();
+player.addComponent('model', {
+  type: 'box'
 });
 
 // create camera entity
@@ -36,16 +38,39 @@ camera.addComponent('camera', {
 var light = new pc.Entity('light');
 light.addComponent('light');
 
+//populate player
+player.addComponent("rigidbody", {
+	type: "dynamic",
+	mass: 1,
+	restitution: 0.5
+});
+
+player.addComponent("collision", {
+	type: "box",
+	halfExtents: new pc.Vec3(0.5, 0.5, 0.5)
+});
+
+app.systems.script.addComponent(player,
+{
+scripts:
+[
+    {url: 'movement.js', name: 'movement'}
+]
+});
+
 // add to hierarchy
 app.root.addChild(cube);
-app.root.addChild(sphere);
+app.root.addChild(player);
 app.root.addChild(camera);
 app.root.addChild(light);
 
+player.setPosition(0, 0, 2);
+
 // set up initial positions and orientations
 cube.setPosition(0, 0, 0);
-//cube.setLocalScale(10,1,10);
-camera.setPosition(0, 0, 10);
+cube.setLocalScale(10,10,1);
+camera.setPosition(0, -10, 10);
+camera.setEulerAngles(45,0,0);
 light.setEulerAngles(45, 0, 0);
 
 // register a global update event
