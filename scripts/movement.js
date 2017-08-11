@@ -2,7 +2,7 @@ var Movement = pc.createScript('movement');
 
 Movement.attributes.add('playerSpeed', {
     type: 'number',
-    default: 30,
+    default: .5,
     title: 'Player Speed'
 });
 
@@ -19,32 +19,29 @@ Movement.prototype.update = function(dt) {
 
     x = 0;
     z = 0;
+    console.log(this.playerSpeed);
+    var keyboard = this.app.keyboard;
 
-    if (app.keyboard.isPressed(pc.KEY_A)) {
-        x -= right.x;
-        z -= right.z;
+    if(keyboard !== null){
+        if (keyboard.isPressed(pc.KEY_A)) {
+            this.entity.translateLocal(-0.1 * dt * this.playerSpeed,0,0);
+        }
+
+        if (keyboard.isPressed(pc.KEY_D)) {
+            this.entity.translateLocal(0.1 * dt * this.playerSpeed,0,0);
+        }
+
+        if (keyboard.isPressed(pc.KEY_W)) {
+            this.entity.translateLocal(0,0,-0.1 * dt * this.playerSpeed);
+        }
+
+        if (keyboard.isPressed(pc.KEY_S)) {
+            this.entity.translateLocal(0,0,0.1 * dt * this.playerSpeed);
+        }
+
+        if (keyboard.isPressed(pc.KEY_SPACE)) {
+            this.entity.translateLocal(0,0.1 * dt * this.playerSpeed,0);
+        }
     }
 
-    if (app.keyboard.isPressed(pc.KEY_D)) {
-        x += right.x;
-        z += right.z;
-    }
-
-    if (app.keyboard.isPressed(pc.KEY_W)) {
-        x += forward.x;
-        z += forward.z;
-    }
-
-    if (app.keyboard.isPressed(pc.KEY_S)) {
-        x -= forward.x;
-        z -= forward.z;
-    }
-
-    if (x !== 0 || z !== 0) {
-        x *= dt;
-        z *= dt;
-
-        this.force.set (x, 0, z).normalize ().scale ((this.playerSpeed));
-        this.entity.rigidbody.applyForce (this.force);
-    }
 };
